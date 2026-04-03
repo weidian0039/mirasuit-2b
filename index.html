@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRASUIT B2B - AI 驱动的男装定制技术平台</title>
+    <meta name="description" content="为品牌商、面料商、平台方提供人格洞察×AI生成×智能推荐的技术合作平台">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --mira-blue: #0A2463;
+            --mira-gold: #D4AF37;
+            --white: #FFFFFF;
+            --gray-50: #F8F9FA;
+            --gray-200: #E5E7EB;
+            --gray-500: #6B7280;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; line-height: 1.6; }
+
+        /* Header */
+        .header { display: flex; align-items: center; justify-content: space-between; height: 80px; background: var(--mira-blue); padding: 0 80px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-text { font-size: 24px; font-weight: bold; color: var(--mira-gold); }
+        .logo-tag { font-size: 14px; color: rgba(255,255,255,0.8); }
+        .nav { display: flex; gap: 40px; }
+        .nav a { color: var(--white); text-decoration: none; font-size: 14px; }
+        .cta-btn { background: var(--mira-gold); color: var(--mira-blue); padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; }
+
+        /* Hero */
+        .hero { background: var(--mira-blue); padding: 100px 80px; text-align: center; }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(212,175,55,0.2); border: 1px solid var(--mira-gold); padding: 8px 16px; border-radius: 20px; margin-bottom: 32px; }
+        .badge-text { font-size: 12px; font-weight: bold; color: var(--mira-gold); letter-spacing: 1px; }
+        .hero h1 { font-size: 56px; font-weight: bold; color: var(--white); line-height: 1.2; margin-bottom: 16px; }
+        .hero h1 span { color: var(--mira-gold); }
+        .hero p { font-size: 20px; color: rgba(255,255,255,0.8); max-width: 800px; margin: 0 auto 32px; }
+        .hero-ctas { display: flex; gap: 16px; justify-content: center; }
+        .btn-primary { background: var(--mira-gold); color: var(--mira-blue); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; }
+        .btn-secondary { border: 2px solid var(--mira-gold); color: var(--mira-gold); padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 16px; }
+
+        /* Client Cards */
+        .clients { background: var(--gray-50); padding: 80px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+        .card { width: 280px; padding: 32px; border-radius: 12px; background: var(--white); border: 1px solid var(--gray-200); display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .card.highlight { background: var(--mira-blue); border: 2px solid var(--mira-gold); }
+        .card-icon { font-size: 40px; }
+        .card-title { font-size: 20px; font-weight: bold; color: var(--mira-blue); }
+        .card.highlight .card-title { color: var(--mira-gold); }
+        .card-desc { font-size: 14px; color: var(--gray-500); text-align: center; }
+        .card.highlight .card-desc { color: rgba(255,255,255,0.9); }
+
+        /* Tech */
+        .tech { padding: 80px; text-align: center; }
+        .tech h2 { font-size: 40px; font-weight: bold; color: var(--mira-blue); margin-bottom: 16px; }
+        .tech p { font-size: 18px; color: var(--gray-500); margin-bottom: 48px; }
+        .tech-cards { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+        .tech-card { width: 340px; padding: 32px; background: var(--gray-50); border-radius: 12px; text-align: left; }
+        .tech-num { font-size: 48px; font-weight: bold; color: rgba(212,175,55,0.2); }
+        .tech-card h3 { font-size: 22px; font-weight: bold; color: var(--mira-blue); margin: 16px 0; }
+        .tech-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+
+        /* API */
+        .api-section { background: var(--mira-blue); padding: 60px 80px; display: flex; justify-content: center; }
+        .api-content { max-width: 600px; }
+        .api-section h2 { font-size: 32px; font-weight: bold; color: var(--mira-gold); margin-bottom: 16px; }
+        .api-section p { font-size: 16px; color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+
+        /* Contact */
+        .contact { background: var(--gray-50); padding: 80px; text-align: center; }
+        .contact h2 { font-size: 36px; font-weight: bold; color: var(--mira-blue); margin-bottom: 8px; }
+        .contact p { font-size: 16px; color: var(--gray-500); margin-bottom: 32px; }
+        .contact-form { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .contact-form input { padding: 14px 20px; border: 1px solid var(--gray-200); border-radius: 6px; width: 250px; font-size: 14px; }
+        .contact-form button { background: var(--mira-gold); color: var(--mira-blue); padding: 14px 28px; border-radius: 6px; border: none; font-weight: bold; font-size: 14px; cursor: pointer; }
+
+        /* Footer */
+        .footer { background: var(--mira-blue); padding: 40px 80px; }
+        .footer-top { display: flex; justify-content: space-between; margin-bottom: 24px; }
+        .footer-logo { font-size: 20px; font-weight: bold; color: var(--mira-gold); }
+        .footer-links { display: flex; gap: 32px; }
+        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; }
+        .footer-bottom { display: flex; justify-content: space-between; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); align-items: center; }
+        .footer-copy { font-size: 12px; color: rgba(255,255,255,0.6); }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social span { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 20px; }
+            .nav { display: none; }
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 16px; }
+            .clients { padding: 40px 20px; }
+            .card { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <span class="logo-text">MIRASUIT</span>
+            <span class="logo-tag">B2B 合作门户</span>
+        </div>
+        <nav class="nav">
+            <a href="#technology">技术能力</a>
+            <a href="#partners">合作方案</a>
+            <a href="#about">关于我们</a>
+        </nav>
+        <a href="#contact" class="cta-btn">申请合作</a>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="badge">
+            <span class="badge-text">AI 驱动的男装定制技术平台</span>
+        </div>
+        <h1>为品牌商、面料商、平台方提供<br><span>人格洞察 × AI生成 × 智能推荐</span></h1>
+        <p>利用 MIRASUIT 的 AI 技术优势和中华市场渠道，创造业务合作新机会</p>
+        <div class="hero-ctas">
+            <a href="#partners" class="btn-primary">查看合作方案</a>
+            <a href="#contact" class="btn-secondary">技术对接咨询</a>
+        </div>
+    </section>
+
+    <!-- Client Cards -->
+    <section class="clients">
+        <div class="card">
+            <span class="card-icon">🧵</span>
+            <h3 class="card-title">面料供应商</h3>
+            <p class="card-desc">获得中国市场品牌曝光 + 联名系列机会</p>
+        </div>
+        <div class="card highlight">
+            <span class="card-icon">👔</span>
+            <h3 class="card-title">服装品牌</h3>
+            <p class="card-desc">AI 技术赋能，提升用户体验与转化</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🔗</span>
+            <h3 class="card-title">电商平台</h3>
+            <p class="card-desc">API 接入，开启定制新业务线</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🏢</span>
+            <h3 class="card-title">企业定制</h3>
+            <p class="card-desc">员工工装 AI 定制解决方案</p>
+        </div>
+    </section>
+
+    <!-- Tech -->
+    <section class="tech" id="technology">
+        <h2>核心技术能力</h2>
+        <p>将心理学 × AI × 时尚融合为可集成的技术能力</p>
+        <div class="tech-cards">
+            <div class="tech-card">
+                <div class="tech-num">01</div>
+                <h3>人格分析引擎</h3>
+                <p>MBTI 16型 × 九型人格 9型，144种人格组合预测，7维度风格推荐算法</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-num">02</div>
+                <h3>AI 大片生成</h3>
+                <p>基于人格的个性化 Prompt，三图差异化策略：当前位置→正在成为→渴望方向</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-num">03</div>
+                <h3>智能推荐系统</h3>
+                <p>版型/款式/色调/图案/光泽/质地/风格，7维度精准匹配，置信度评分机制</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- API -->
+    <section class="api-section">
+        <div class="api-content">
+            <h2>开发者友好的 API 接口</h2>
+            <p>快速集成人格分析、AI 生成、智能推荐能力到您的平台</p>
+            <a href="#contact" class="btn-primary" style="display: inline-block;">查看 API 文档</a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2>开启合作对话</h2>
+        <p>告诉我们您的合作意向，我们将在 24 小时内回复</p>
+        <form class="contact-form" onsubmit="alert('感谢您的申请！我们会尽快与您联系。'); return false;">
+            <input type="text" placeholder="公司名称" required>
+            <input type="email" placeholder="联系邮箱" required>
+            <button type="submit">提交申请</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <span class="footer-logo">MIRASUIT</span>
+            <nav class="footer-links">
+                <a href="#technology">技术能力</a>
+                <a href="#partners">合作方案</a>
+                <a href="#about">关于我们</a>
+                <a href="#contact">联系我们</a>
+            </nav>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2026 MIRASUIT. All rights reserved.</span>
+            <div class="footer-social">
+                <span>WeChat</span>
+                <span>LinkedIn</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
